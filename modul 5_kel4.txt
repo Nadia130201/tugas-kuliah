@@ -1,0 +1,62 @@
+package tugasmodul_5;
+public class userService {
+    private String[][] data = new String[2][3];
+    private String[][] histori = new String [2][5];
+    private String email, password, roles = "";
+    int buku;
+    
+    //ini namanya constructor yang akan dijalankan setiap class diinisialisasikan
+    public userService(String emails, String passwords)
+    {
+        email = emails;
+        password = passwords;
+        String[][] data = 
+        { 
+            {"nadiakelompok4@gmail.com", "12345", "supedAdmin"},
+            {"riankelompok4@gmail.com", "12345", "user"} 
+        };
+        String[][] histori = 
+        {
+            {"nadiakelompok4@gmail.com","Fisika Dasar II","Dasar Komputer dan Pemrograman","Sistem Digital","21-04-2020"},
+            {"riankelompok4@gmail.com","Konsep Jaringan Komputer","Dasar Komputer dan Pemrograman","Kalkulus","21-04-2020"}
+        };
+        this.data = data;
+        this.histori = histori;
+    }
+private boolean checkCredential()
+    {
+        for(int i = 0; i < data.length; i++ )
+        {
+            if(data[i][0].equals(email))
+            {
+                if(data[i][1].equals(password))
+                {
+                    roles = data[i][2];
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+public void login()
+    {
+        boolean status = checkCredential();
+        if(status == true)
+        {
+            System.out.println("\nWelcome " + roles);
+            System.out.println("Logged it as user email " + email);
+            System.out.println(email + "Telah Meminjam Buku, yaitu : " );
+            for (int i=1;i<4;i++) {
+                System.out.println(histori[buku][i]);
+            }
+            System.out.println("Tanggal Peminjamannya, yaitu pada : " + histori[buku][4]);
+        }
+        else
+        {
+            System.out.println("\nInvalid Login ");
+        }
+    }
+
+
+    
+}
