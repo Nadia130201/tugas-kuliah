@@ -1,0 +1,127 @@
+class Program
+	{
+		public static int harga;
+		static void Main(string[] args)
+		{
+			string input;
+			string k = "PRAKTIKUM DKP KELOMPOK 4 SHIFT 1"; Console.SetCursorPosition((Console.WindowWidth) / 2, Console.CursorTop);
+			Console.WriteLine(k);
+			Console.WriteLine(" ");
+			Console.WriteLine("NAMA PRAKTIKAN 1\t : NADIA");
+			Console.WriteLine("NIM\t                 : 21120119120023");
+			Console.WriteLine("NAMA PRAKTIKAN 2\t : AGRIAN RIZKY HIBATULLAH");
+			Console.WriteLine("NIM\t                 : 21120119130106");
+			Console.WriteLine(" ");
+
+
+			{
+				string S = "SELAMAT DATANG DI TOKO ELEKRONIK SINAR JAYA. KAMI SIAP MELAYANI ANDA DENGAN SEPENUH HATI"; Console.SetCursorPosition((Console.WindowWidth) / 2, Console.CursorTop);
+				Console.WriteLine(S);
+				string L = "****************************************************************************************"; Console.SetCursorPosition((Console.WindowWidth) / 2, Console.CursorTop);
+				Console.WriteLine(L);
+				Console.WriteLine();
+
+				//Deklarasi Variabel
+				string barang_dipilih, hasil;
+				int banyak, harga, harga_barang, kembalian, n = 0, total_belanjaan = 0, uang, pilih;
+				bool loop;
+
+				//Deklarasi Array
+				string[] produk = new string[] { "TELEVISI PANASONIC", "KULKAS", "RADIO", "LAPTOP ASUS", "KOMPUTER", "KIPAS ANGIN", "AC", "JAM DINDING" };
+				string[] total = new string[8];
+				int[] banyak_barang = new int[8];
+				int[] total_harga = new int[8];
+				harga = 0;
+				hasil = "";
+
+				//Mulai
+				Console.WriteLine("===============DAFTAR ELEKTRONIK DI TOKO SINAR JAYA================");
+				for (int i = 0; i < 8; i++)
+				{
+					Console.WriteLine(i + 1 + ". " + produk[i]);
+				}
+				Console.WriteLine("===================================================================");
+
+				//perulangan do
+				do
+				{
+					Console.WriteLine("MASUKKAN NO ELEKTRONIK YANG ANDA INGINKAN [0 untuk total]: ");
+					int.TryParse(Console.ReadLine(), out pilih);
+					loop = true;
+					switch (pilih)
+					{
+						case 1:
+							harga = 1300000;
+							hasil = produk[0];
+							Console.WriteLine(hasil + " Harga Rp. " + harga);
+							break;
+						case 2:
+							harga = 1600000;
+							hasil = produk[1];
+							Console.WriteLine(hasil + " Harga Rp. " + harga);
+							break;
+						case 3:
+							harga = 2750000;
+							hasil = produk[2];
+							Console.WriteLine(hasil + " Harga Rp. " + harga);
+							break;
+						case 4:
+							harga = 1250000;
+							hasil = produk[3];
+							Console.WriteLine(hasil + " Harga Rp. " + harga);
+							break;
+
+						case 5:
+							harga = 350000;
+							hasil = produk[4];
+							Console.WriteLine(hasil + " Harga Rp. " + harga);
+							break;
+						case 6:
+							harga = 700000;
+							hasil = produk[5];
+							Console.WriteLine(hasil + " Harga Rp. " + harga);
+							break;
+						case 7:
+							harga = 2717000;
+							hasil = produk[6];
+							Console.WriteLine(hasil + " Harga Rp. " + harga);
+							break;
+						case 8:
+							harga = 115000;
+							hasil = produk[7];
+							Console.WriteLine(hasil + " Harga Rp. " + harga);
+							break;
+						default:
+							loop = false;
+							Console.WriteLine("MASUKAN SALAH");
+							break;
+
+					}
+					if (loop ^= false)
+					{
+						Console.WriteLine("Banyak barang : ");
+						int.TryParse(Console.ReadLine(), out banyak);
+						harga_barang = harga * banyak;
+						total_belanjaan = total_belanjaan + harga_barang;
+
+						banyak_barang[n] = banyak;
+						total[n] = hasil;
+						total_harga[n] = harga_barang;
+						n++;
+					}
+				} while (pilih != 0);
+				Console.WriteLine("======================================================");
+				for (int m = 0; m < n; m++)
+				{
+					Console.WriteLine(m + 1 + ". " + total[m] + " x " + banyak_barang[m] + " = " + total_harga[m]);
+				}
+				Console.WriteLine("======================================================");
+				Console.WriteLine("TOTAL BIAYA BELANJA ANDA  : Rp. " + total_belanjaan);
+				Console.WriteLine("UANG YANG DIBAYARKAN : Rp. ");
+				int.TryParse(Console.ReadLine(), out uang);
+				kembalian = uang - total_belanjaan;
+				Console.WriteLine("======================================================");
+				Console.WriteLine("KEMBALIAN : Rp. " + kembalian);
+			}
+		}
+	}	}
